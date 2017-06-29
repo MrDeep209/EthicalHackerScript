@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Convert to Kali Linux
 # Update and install software
 mv /etc/apt/sources.list /etc/apt/sources.list.bak
 echo "
@@ -14,10 +13,6 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
 apt-get -y update && apt-get -y dist-upgrade
 apt-get -y install kali-linux
 apt-get install -y fail2ban tmux screen vim git ntp sudo dnsutils apache2 metasploit* nikto sqlninja wpscan tor
-
-# If you'd rather the full Kali Linux install uncomment
-# apt-get install kali-linux-full
-
 apt-get -y autoremove --purge && apt-get clean
 systemctl enable fail2ban
 systemctl start fail2ban
@@ -56,10 +51,7 @@ echo "Your exit node url is:" && cat /var/lib/tor/hostname
 
 
 # Empire
-cd /opt
+cd /opt || return
 git clone https://github.com/EmpireProject/Empire.git
-cd Empire/setup/
+cd Empire/setup/ || return
 ./install.sh
-
-
-
