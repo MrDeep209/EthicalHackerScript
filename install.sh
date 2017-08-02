@@ -47,7 +47,7 @@ HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
 systemctl restart tor
 
 # Print your exit node URL
-echo "Your exit node url is:" && cat /var/lib/tor/hostname
+echo "Your hidden service url is:" && cat /var/lib/tor/hostname
 
 
 # Empire
